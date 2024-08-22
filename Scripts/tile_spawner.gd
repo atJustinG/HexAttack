@@ -14,16 +14,22 @@ func spawn(col, row) -> void:
 		if n%2 == 0: 
 			offset = 0
 		for m in row:
+			#Tile Object wird instantiiert
 			var tile = BASE_TILE.instantiate()
 			get_parent().add_child(tile)
-			new_row.append(m) # 2d matrix
+			#Tile position wird festgelegt
 			tile.transform.origin.z = n * 1.8
 			tile.transform.origin.x = (m * 2) + offset
-		tiles.append(new_row) # 2d matrix
-	#2d matrix wip
-	for a in tiles:
-		print(a)
-	
+			
+			new_row.append(tile) # 2d matrix
+		tiles.append(new_row)
+
+#get specific Tile
+func get_tile(col: int, row: int) -> Node3D:
+	if col >= 0 and col < tiles.size() and row >=0 and row < tiles[col].size():
+		return tiles[col][row] 
+	return null 
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
