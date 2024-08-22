@@ -51,4 +51,5 @@ func update_raycast_from_mouse() -> void:
 	
 	raycast.transform.origin = ray_origin
 	raycast.target_position = ray_direction*1000
+	DebugDraw.line_3d(mouse_pos, raycast.target_position, Color.RED)
 	raycast.force_raycast_update()  # Erzwinge ein Update des RayCasts

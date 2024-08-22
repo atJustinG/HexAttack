@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 
 const BASE_TILE = preload("res://Scenes/base_tile.tscn")
