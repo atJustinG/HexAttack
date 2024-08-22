@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt8yjkmulx1yy"]
+
+[ext_resource type="PackedScene" uid="uid://dl6t7ht8h2uqn" path="res://Assets/gltf/tiles/base/hex_grass.gltf" id="1_rtqno"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j8etk"]
+radius = 1.0
+
+[node name="baseTile" type="Node3D"]
+
+[node name="hex_grass2" parent="." instance=ExtResource("1_rtqno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="hex_grass2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hex_grass2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, -0.440285, 0)
+shape = SubResource("CylinderShape3D_j8etk")

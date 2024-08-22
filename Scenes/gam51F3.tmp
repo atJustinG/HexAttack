@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpq1ofd8x5l7o"]
+
+[ext_resource type="PackedScene" uid="uid://hjnid4rfkik3" path="res://Scenes/tile_spawner.tscn" id="1_vxbb4"]
+[ext_resource type="PackedScene" uid="uid://dt8yjkmulx1yy" path="res://Scenes/base_tile.tscn" id="2_36mk7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ps8kb"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_jjvsd"]
+sky_material = SubResource("ProceduralSkyMaterial_ps8kb")
+
+[sub_resource type="Environment" id="Environment_aumro"]
+background_mode = 2
+sky = SubResource("Sky_jjvsd")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Game" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aumro")
+
+[node name="TileSpawner" parent="." instance=ExtResource("1_vxbb4")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.157315, 0.471283, -0.867839, -0.0938946, 0.881938, 0.46192, 0.983075, 0.00881872, 0.182993, -11, 7, 0)
+
+[node name="baseTile" parent="." instance=ExtResource("2_36mk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554083, 0, 0.192933)

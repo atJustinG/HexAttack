@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4dms5t20hcxb"]
+
+[ext_resource type="PackedScene" uid="uid://cf6wk3h5da2pp" path="res://Assets/gltf/decoration/props/flag_red.gltf" id="1_tdxmj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v5svw"]
+radius = 0.148879
+
+[node name="simpleEnemy" type="CharacterBody3D"]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="flag_red2" parent="Pivot" instance=ExtResource("1_tdxmj")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.165778, 0, 0, 0, 1, 0, 0.162911, 0)
+shape = SubResource("CylinderShape3D_v5svw")
