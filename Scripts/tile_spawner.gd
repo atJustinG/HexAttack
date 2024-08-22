@@ -33,7 +33,7 @@ func spawn_alternate(row, col)-> void:
 		for m in range(row):
 			var tile = BASE_TILE.instantiate()
 			tile.position = Vector3((m * 2) + offset, 0, n * 1.8)
-			tile.add_to_group("tilesGroup")
+			tile.add_to_group("tileGroup")
 			
 			get_parent().add_child(tile)
 			new_row.append(tile)

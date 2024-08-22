@@ -4,11 +4,11 @@ extends Node3D
 @onready var camera: Camera3D = $Camera3D
 @onready var raycast: RayCast3D = $Camera3D/RayCast3D
 
-var highlighted_tile = null
-var original_material = null
+var highlighted_tile: Node3D = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	raycast.enabled = true
+	print("Raycast enabled")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,30 +20,28 @@ func _process(delta: float) -> void:
 func highlight_tile_under_mouse() -> void:
 	if raycast.is_colliding():
 		var collided_object = raycast.get_collider()
+		print("Raycast hit: ", collided_object.name)
 		
-		if collided_object.is_in_group("tileGroup"):
-			if collided_object != highlighted_tile:
-				if highlighted_tile != null:
-					highlighted_tile.material_override = original_material
-				#neues Tile hervorheben
-				highlighted_tile = collided_object
-				original_material = highlighted_tile.material_override
-				
-				#weißes highlight erstellen
-				if original_material != null:
-					var highlight_material = original_material.duplicate()
-					highlight_material.albedo_color(1, 1, 1) #weiß
-					highlighted_tile.material_override = highlight_material
+		var potential_tile = collided_object
+		print("Potential tile: ", potential_tile.name)
+		
+		if potential_tile.is_in_group("tileGroup"):
+			print("object is in tileGroup")
+			if potential_tile != highlighted_tile:
+				#print("New Tile to highlight")
+				unhighlight_current_tile()
+				highlighted_tile = potential_tile
+				highlighted_tile.highlight()
+				#print("highlighted tile: ", highlighted_tile.name)
 		else:
-			#wenn kein tile getroffen wird highlight zurücksetzen
-			if highlighted_tile != null:
-				highlighted_tile.material_override = original_material
-				highlighted_tile = null
+			unhighlight_current_tile()
 	else:
-		#wenn kein Objekt getroffen wird zurücksetzen 
-		if highlighted_tile != null:
-				highlighted_tile.material_override = original_material
-				highlighted_tile = null
+		unhighlight_current_tile()
+
+func unhighlight_current_tile() -> void:
+	if highlighted_tile != null:
+		highlighted_tile.unhighlight()
+		highlighted_tile = null
 
 
 func update_raycast_from_mouse() -> void:
