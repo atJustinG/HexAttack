@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpq1ofd8x5l7o"]
+[gd_scene load_steps=7 format=3 uid="uid://bpq1ofd8x5l7o"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_ej64q"]
 [ext_resource type="PackedScene" uid="uid://hjnid4rfkik3" path="res://Scenes/tile_system.tscn" id="1_vxbb4"]
+[ext_resource type="Script" path="res://Scenes/camera_3d.gd" id="2_c6b4p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ps8kb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,9 +29,6 @@ environment = SubResource("Environment_aumro")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0.580703, -0.814116, 0, 0.814116, 0.580703, 1, 2.53833e-08, -3.55861e-08, -10, 7, 0)
-
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0.580703, 0.814116, 2.53833e-08, -0.814116, 0.580703, -3.55861e-08, 0, 0, 0)
-target_position = Vector3(0, 0, -100)
+script = ExtResource("2_c6b4p")
 
 [node name="TileSystem" parent="." instance=ExtResource("1_vxbb4")]
