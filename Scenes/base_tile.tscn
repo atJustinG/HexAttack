@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://Scripts/base_tile.gd" id="1_xd0c7"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_j8etk"]
-radius = 1.0
+height = 0.41745
+radius = 0.48714
 
 [node name="baseTile" type="Node3D"]
 script = ExtResource("1_xd0c7")
@@ -16,5 +17,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0113107, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hex_grass3/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, -0.440285, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.440285, 0)
 shape = SubResource("CylinderShape3D_j8etk")

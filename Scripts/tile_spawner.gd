@@ -1,6 +1,5 @@
 extends Node
 
-
 const BASE_TILE = preload("res://Scenes/base_tile.tscn")
 
 const zpos = 1.8
@@ -24,7 +23,7 @@ func spawn(col, row) -> void:
 			new_row.append(tile) # 2d matrix
 		tiles.append(new_row)
 
-func spawn_alternate(row, col)-> void:
+func spawn_alternate(row, col) -> void:
 	for n in range(col):
 		var new_row = []
 		offset = 1
@@ -50,5 +49,5 @@ func get_tile(col: int, row: int) -> Node3D:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#call_deferred("spawn", 6, 6)
+	#spawn_alternate(6,6)
 	call_deferred("spawn_alternate", 6, 6)
