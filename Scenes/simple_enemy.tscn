@@ -10,7 +10,8 @@ radius = 0.148879
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="flag_red2" parent="Pivot" instance=ExtResource("1_tdxmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.96046e-08, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.165778, 0, 0, 0, 1, 0, 0.162911, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/flag_red2"]
+transform = Transform3D(0.522036, 0, 0, 0, 0.116025, 0, 0, 0, 0.693771, 0, 0.161013, 0)
 shape = SubResource("CylinderShape3D_v5svw")
