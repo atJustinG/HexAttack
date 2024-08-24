@@ -12,6 +12,5 @@ func shoot_ray() -> Dictionary:
 	var ray_query = PhysicsRayQueryParameters3D.new()
 	ray_query.from = from
 	ray_query.to = to
-	var raycast_result = space.intersect_ray(ray_query)
-	print(raycast_result)
+	var raycast_result = space.intersect_ray(ray_query)	
 	return raycast_result
