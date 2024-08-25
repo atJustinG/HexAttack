@@ -29,6 +29,7 @@ environment = SubResource("Environment_aumro")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0.580703, -0.814116, 0, 0.814116, 0.580703, 1, 2.53833e-08, -3.55861e-08, -10, 7, 0)
+visible = false
 script = ExtResource("2_c6b4p")
 
 [node name="TileSystem" parent="." instance=ExtResource("1_vxbb4")]
