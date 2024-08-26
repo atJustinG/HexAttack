@@ -37,9 +37,9 @@ func setup_materials():
 		push_error("No material found on mesh")
 
 func highlight():
-	print(self, "highlight is called")
+	#print(self, "highlight is called")
 	if mesh_instance and highlight_material:
-		print(self, "do highlight")
+		#print(self, "do highlight")
 		mesh_instance.set_surface_override_material(0, highlight_material)
 
 
