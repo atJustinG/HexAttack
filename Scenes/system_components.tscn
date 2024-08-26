@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5ndyx7477b3t"]
+
+[ext_resource type="Script" path="res://Scripts/highlight_mesh.gd" id="1_55yo1"]
+
+[node name="Utils" type="Node3D"]
+
+[node name="highlightMesh" type="Node3D" parent="."]
+script = ExtResource("1_55yo1")

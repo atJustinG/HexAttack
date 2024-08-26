@@ -1,6 +1,5 @@
-extends Node
+extends Node3D
 
-#highlights a meshInstance best with shader for now material
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

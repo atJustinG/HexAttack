@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_ej64q"]
 [ext_resource type="PackedScene" uid="uid://hjnid4rfkik3" path="res://Scenes/tile_system.tscn" id="1_vxbb4"]
-[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="2_c6b4p"]
+[ext_resource type="PackedScene" uid="uid://c1yapw1p3xygn" path="res://Scenes/player.tscn" id="4_m3fvt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ps8kb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -27,10 +27,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aumro")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0.580703, -0.814116, 0, 0.814116, 0.580703, 1, 2.53833e-08, -3.55861e-08, -10, 7, 0)
-visible = false
-script = ExtResource("2_c6b4p")
-
 [node name="TileSystem" parent="." instance=ExtResource("1_vxbb4")]
 script = null
+
+[node name="Player" parent="." instance=ExtResource("4_m3fvt")]
