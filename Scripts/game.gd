@@ -11,13 +11,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	for foo in highlight_list:
-		foo.unhighlight()
-	
-	var dictionary : Dictionary = camera.shoot_ray()
+	var new_highlights: Array = []
+	var dictionary: Dictionary = camera.shoot_ray()
 	if dictionary:
 		var collider: StaticBody3D = dictionary["collider"]
 		var baseTile: Node3D = collider.get_parent().get_parent()
-		print(baseTile)
-		baseTile.highlight()
-		highlight_list.append(baseTile)
+		if not highlight_list.has(baseTile):
+			baseTile.highlight()
+		new_highlights.append(baseTile)
+	for foo: Node3D in highlight_list:
+		if not new_highlights.has(foo):
+			foo.unhighlight()
+	highlight_list = new_highlights
+	
