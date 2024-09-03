@@ -7,7 +7,14 @@ var mesh_instance: MeshInstance3D
 var default_material: Material
 var highlight_material: Material
 
-var pos: Vector2i
+## Position 
+var pos: TilePos:
+	get:
+		return TilePos.from_array_pos(array_pos.x, array_pos.y)
+	set(tp):
+		array_pos = tp.to_array_pos()
+var array_pos: Vector2i
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
