@@ -1,4 +1,5 @@
 extends Node
+class_name TileSpawner
 
 const BASE_TILE = preload("res://Scenes/base_tile.tscn")
 
@@ -14,7 +15,8 @@ func spawn(col, row) -> void:
 			offset = 0
 		for m in row:
 			#Tile Object wird instantiiert
-			var tile = BASE_TILE.instantiate()
+			var tile = BASE_TILE.instantiate() as BaseTile
+			tile.pos = Vector2i(n, m)
 			get_parent().add_child(tile)
 			#Tile position wird festgelegt
 			tile.transform.origin.z = n * 1.8
@@ -30,13 +32,13 @@ func spawn_alternate(row, col) -> void:
 		if n%2 == 0: 
 			offset = 0
 		for m in range(row):
-			var tile = BASE_TILE.instantiate()
+			var tile = BASE_TILE.instantiate() as BaseTile
+			tile.array_pos = Vector2i(n, m)
 			tile.position = Vector3((m * 2) + offset, 0, n * 1.8)
 			tile.add_to_group("tileGroup")
 			
 			get_parent().add_child(tile)
 			new_row.append(tile)
-			
 		tiles.append(new_row)
 
 

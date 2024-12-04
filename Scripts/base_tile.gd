@@ -1,11 +1,20 @@
 extends Node3D
-
+class_name BaseTile
 
 @onready var hex_grass_3: Node3D = $hex_grass3
 
 var mesh_instance: MeshInstance3D
 var default_material: Material
 var highlight_material: Material
+
+## Position 
+var pos: TilePos:
+	get:
+		return TilePos.from_array_pos(array_pos.x, array_pos.y)
+	set(tp):
+		array_pos = tp.to_array_pos()
+var array_pos: Vector2i
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,7 +46,7 @@ func setup_materials():
 		push_error("No material found on mesh")
 
 func highlight():
-	print(self, "highlight is called")
+	print(self, "highlight is called at " + str(pos))
 	if mesh_instance and highlight_material:
 		print(self, "do highlight")
 		mesh_instance.set_surface_override_material(0, highlight_material)
